@@ -1,4 +1,4 @@
-# Título do Projeto
+# Agro Pop
 
 `CURSO: Sistemas de Informação`
 
@@ -6,18 +6,28 @@
 
 `Eixo: 5`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+Projeto de Infraestrutura de Redes para uma fazenda de aves que conta com uma sede e duas filiais. 
+O projeto é desenvolvido com o objetivo de desenvolver uma solução adequada para a necessidade utilizando modelagem, prototipação e simulação.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
-* Nome completo do aluno 5
+* Fábio Rezende Dias Silva
+* Gabriela Farias Rios
+* Luiz Henrique Campos Rocha
+* Marcelo Moreira Nunes
+* Matheus De Sousa Cysneiros
+* Nikolas Augusto De Paula Batista
+* Pedro Murilo Ribeiro de Almeida
 
 ## Orientador
 
-* Nome completo do professor 1
+* Alexandre Teixeira
+
+
+
+
+
+"A sabedoria oferece uma vida longa e também riquezas e honras"
+Provérbios 3:16
 
 
