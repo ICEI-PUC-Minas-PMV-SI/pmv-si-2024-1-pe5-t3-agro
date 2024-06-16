@@ -25,4 +25,11 @@ export class PrismaWorkerRepository implements WorkersRepository {
 			},
 		});
 	}
+	async getWorkersByBranchId(branchId: string) {
+		return prisma.worker.findMany({
+			where: {
+				branchId,
+			},
+		});
+	}
 }

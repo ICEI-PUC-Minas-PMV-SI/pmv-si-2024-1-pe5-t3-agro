@@ -16,12 +16,12 @@ export async function authenticate(
 	const authenticateUseCase = makeAuthenticateUseCase();
 
 	try {
-		await authenticateUseCase.execute({ email, password });
+		const worker = await authenticateUseCase.execute({ email, password });
+		return reply.status(200).send({ worker });
 	} catch (error) {
 		if (error instanceof InvalidCredentialsError) {
 			return reply.status(400).send({ message: error.message });
 		}
 		throw error;
 	}
-	return reply.status(200).send();
 }

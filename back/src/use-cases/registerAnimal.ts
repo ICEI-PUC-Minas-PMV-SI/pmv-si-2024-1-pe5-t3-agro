@@ -5,7 +5,6 @@ import { Animals, AnimalType } from '@prisma/client';
 export interface RegisterAnimalRequest {
 	name: string;
 	branchId: string;
-	type: AnimalType;
 }
 
 export interface RegisterAnimalResponse {
@@ -20,7 +19,6 @@ export class RegisterAnimalUseCase {
 	async execute({
 		name,
 		branchId,
-		type,
 	}: RegisterAnimalRequest): Promise<RegisterAnimalResponse> {
 		const branch = await this.branchRepository.findById(branchId);
 		if (!branch) {
@@ -29,7 +27,7 @@ export class RegisterAnimalUseCase {
 
 		const animal = await this.animalRepository.create({
 			name,
-			type,
+			type: AnimalType.CHICKEN,
 			price: 0, // Add the price property with a default value
 			Branch: { connect: { id: branchId } },
 		});

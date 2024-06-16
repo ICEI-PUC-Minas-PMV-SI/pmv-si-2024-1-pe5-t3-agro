@@ -1,4 +1,4 @@
-import { Prisma, Animals } from '@prisma/client';
+import { Prisma } from '@prisma/client';
 import { prisma } from '../../lib/prisma';
 import BranchRepository from '../branch-repository';
 
