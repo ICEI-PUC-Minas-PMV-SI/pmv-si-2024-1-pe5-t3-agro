@@ -25,4 +25,7 @@ export class PrismaBranchRepository implements BranchRepository {
 			},
 		});
 	}
+	async getAll() {
+		return prisma.branch.findMany();
+	}
 }
