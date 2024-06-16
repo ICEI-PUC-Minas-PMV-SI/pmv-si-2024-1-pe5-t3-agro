@@ -1,0 +1,47 @@
+{
+	"name": "api-solid",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "tsx watch src/server.ts --onSuccess \"node dist/server.js\"",
+		"start": "node build/server.js",
+		"build": "tsup src --out-dir build",
+		"test": "vitest run",
+		"test:watch": "vitest --watch",
+		"test:coverage": "vitest --coverage"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@eslint/eslintrc": "3.0.2",
+		"@eslint/js": "9.0.0",
+		"@rocketseat/eslint-config": "2.2.2",
+		"@types/bcryptjs": "2.4.6",
+		"@types/node": "^20.12.7",
+		"@typescript-eslint/eslint-plugin": "^6.4.0",
+		"@vitest/coverage-v8": "1.5.0",
+		"eslint": "^8.0.1",
+		"eslint-config-standard-with-typescript": "43.0.1",
+		"eslint-plugin-import": "^2.25.2",
+		"eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
+		"eslint-plugin-promise": "^6.0.0",
+		"eslist": "1.0.0-beta.1",
+		"globals": "15.0.0",
+		"prisma": "5.12.1",
+		"tsup": "^8.0.2",
+		"tsx": "^4.7.2",
+		"typescript": "^5.4.5",
+		"vite-tsconfig-paths": "4.3.2",
+		"vitest": "1.5.0"
+	},
+	"dependencies": {
+		"@prisma/client": "5.12.1",
+		"bcryptjs": "2.4.3",
+		"dayjs": "1.11.10",
+		"dotenv": "16.4.5",
+		"fastify": "^4.26.2",
+		"zod": "3.22.4"
+	}
+}

@@ -1,0 +1,84 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+datasource db {
+  provider             = "postgresql"
+  url                  = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl            = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  referentialIntegrity = "prisma"
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum AnimalType {
+  CHICKEN
+  COW
+  GOAT
+  SHEEP
+}
+
+model Worker {
+  id            String   @id @default(uuid())
+  email         String   @unique
+  password_hash String
+  name          String
+  role          Role     @default(USER)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  Branch        Branch   @relation(fields: [branchId], references: [id])
+  branchId      String
+
+  @@map("workers")
+}
+
+model Branch {
+  id        String    @id @default(uuid())
+  name      String
+  address   String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  workers   Worker[]
+  Animals   Animals[]
+  Rations   Ration[]
+
+  @@map("branches")
+}
+
+model Animals {
+  id              String     @id @default(uuid())
+  name            String
+  price           Float
+  minRationAmount Float      @default(1)
+  type            AnimalType @default(CHICKEN)
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+  Branch          Branch     @relation(fields: [branchId], references: [id])
+  branchId        String
+
+  @@map("animals")
+}
+
+model Ration {
+  id        String     @id @default(uuid())
+  name      String
+  price     Float
+  amount    Float
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  for       AnimalType @default(CHICKEN)
+  Branch    Branch     @relation(fields: [branchId], references: [id])
+  branchId  String
+
+  @@map("rations")
+}
